@@ -31,7 +31,7 @@ void PrepChest::openMap(std::string filePath, bool type)
 
 std::string PrepChest::lookColor(int x, int y)
 {
-    //std::cout << "|" << emptyMap[x][y] << "|" << x << " = x && " << y << " = y" << std::endl;
+    //std::cout << "|" << tColoremptyMap[x][y] << "|" << x << " = x && " << y << " = y" << std::endl;
     if (emptyMap[x][y] == '.')
         return "white";
     else if (emptyMap[x][y] == '*')
@@ -42,25 +42,25 @@ std::string PrepChest::lookColor(int x, int y)
 
 void PrepChest::setPieceType(Piece *piece)
 {
-    char cpy = tolower(piece->getName());
+    char cpy = tolower(piece->getType());
 
     //std::cout << "hey " << cpy << std::endl;
     if (cpy)
     {
-        if (cpy == 't')
-            piece->setType("Rook");
-        else if (cpy == 'c')
-            piece->setType("Knight");
-        else if (cpy == 'f')
-            piece->setType("Bishop");
-        else if (cpy == 'd')
-            piece->setType("Queen");
-        else if (cpy == 'r')
-            piece->setType("King");
-        else if (cpy == 'a' || cpy == 'b' || cpy == 'e' || (cpy >= 'g' && cpy <= 'k'))
+        if (cpy == 'r')
+            piece->setName("Rook");
+        else if (cpy == 'n')
+            piece->setName("Knight");
+        else if (cpy == 'b')
+            piece->setName("Bishop");
+        else if (cpy == 'q')
+            piece->setName("Queen");
+        else if (cpy == 'k')
+            piece->setName("King");
+        else if (cpy >= 'c' && cpy <= 'j')
         {
             piece->setFstMove(false);
-            piece->setType("Pawn");
+            piece->setName("Pawn");
         }
     }
     else
@@ -73,8 +73,8 @@ Piece *PrepChest::createPiece(int i, int j, char c, char team)
     piece->setX(i);
     piece->setY(j);
     piece->setStatus(true);
-    piece->setColor(lookColor(i, j));
-    piece->setName(c);
+    piece->setTileColor(lookColor(i, j));
+    piece->setType(c);
     piece->setFstMove(true);
     setPieceType(piece);
     if (team == 'l')
@@ -96,20 +96,20 @@ void PrepChest::setPieces()
                 allPieces.push_back(createPiece(i, j, fullMap[i][j], 'u'));
     //dispVec(fullMap);
     //dumpPieces();
-    std::cout << "test\n";
-    dumpPiece(allPieces[0]);
+    dumpPiece(allPieces[1]);
 }
 
 void PrepChest::dumpPiece(Piece *piece)
 {
     if (piece)
     {
-        std::cout << "x = " << piece->getX()
-                  << "\ny = " << piece->getY()
-                  << "\nstatus = " << piece->getStatus()
-                  << "\ncolor = " << piece->getColor()
-                  << "\nname = " << piece->getName()
-                  << "\ntype = " << piece->getType()
+        std::cout << "X = " << piece->getX()
+                  << "\nY = " << piece->getY()
+                  << "\nStatus = " << piece->getStatus()
+                  << "\nTile color = " << piece->getTileColor()
+                  << "\nName = " << piece->getName()
+                  << "\nType = " << piece->getType()
+                  << "\nTeam = " << piece->getTeam()
                   << "\n------------------------" << std::endl;
     }
 }
@@ -118,12 +118,13 @@ void PrepChest::dumpPieces()
 {
     for (size_t i = 0; i != allPieces.size(); i++)
     {
-        std::cout << "x = " << allPieces[i]->getX()
-                  << "\ny = " << allPieces[i]->getY()
-                  << "\nstatus = " << allPieces[i]->getStatus()
-                  << "\ncolor = " << allPieces[i]->getColor()
-                  << "\nname = " << allPieces[i]->getName()
-                  << "\ntype = " << allPieces[i]->getType()
+        std::cout << "X = " << allPieces[i]->getX()
+                  << "\nY = " << allPieces[i]->getY()
+                  << "\nStatus = " << allPieces[i]->getStatus()
+                  << "\nTile color = " << allPieces[i]->getTileColor()
+                  << "\nName = " << allPieces[i]->getName()
+                  << "\nType = " << allPieces[i]->getType()
+                  << "\nTeam = " << piece->getTeam()
                   << "\n------------------------" << std::endl;
     }
 }

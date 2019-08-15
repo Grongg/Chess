@@ -14,22 +14,22 @@ void Piece::setStatus(bool _status)
     status = _status;
 }
 
-std::string Piece::getColor() const
+std::string Piece::getTileColor() const
 {
-    return color;
+    return tileColor;
 }
 
-void Piece::setColor(std::string _color)
+void Piece::setTileColor(std::string _color)
 {
-    color = _color;
+    tileColor = _color;
 }
 
-char Piece::getName() const
+std::string Piece::getName() const
 {
     return name;
 }
 
-void Piece::setName(char _name)
+void Piece::setName(std::string _name)
 {
     name = _name;
 }
@@ -54,12 +54,12 @@ void Piece::setY(int _y)
     y = _y;
 }
 
-std::string Piece::getType() const
+char Piece::getType() const
 {
     return type;
 }
 
-void Piece::setType(std::string _type)
+void Piece::setType(char _type)
 {
     type = _type;
 }

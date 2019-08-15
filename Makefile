@@ -17,7 +17,7 @@ OBJS	=	$(SRCS:.cpp=.o)
 
 CXXFLAGS	+=	-I include  -std=c++11 -Wall -Wextra #-lsfml-graphic -lsfml-system
 
-NAME	=	Game
+NAME	=	Game.exe
 
 all: $(NAME)
 
