@@ -48,26 +48,26 @@ void PrepChest::setPieceType(Piece *piece)
     if (cpy)
     {
         if (cpy == 't')
-            piece->setType("tour");
+            piece->setType("Rook");
         else if (cpy == 'c')
-            piece->setType("cavalier");
+            piece->setType("Knight");
         else if (cpy == 'f')
-            piece->setType("fou");
+            piece->setType("Bishop");
         else if (cpy == 'd')
-            piece->setType("dame");
+            piece->setType("Queen");
         else if (cpy == 'r')
-            piece->setType("roi");
+            piece->setType("King");
         else if (cpy == 'a' || cpy == 'b' || cpy == 'e' || (cpy >= 'g' && cpy <= 'k'))
         {
             piece->setFstMove(false);
-            piece->setType("pion");
+            piece->setType("Pawn");
         }
     }
     else
         throw std::runtime_error("Not a valid piece, now exiting ...");
 }
 
-Piece *PrepChest::createPiece(int i, int j, char c)
+Piece *PrepChest::createPiece(int i, int j, char c, char team)
 {
     piece = new Piece();
     piece->setX(i);
@@ -77,6 +77,12 @@ Piece *PrepChest::createPiece(int i, int j, char c)
     piece->setName(c);
     piece->setFstMove(true);
     setPieceType(piece);
+    if (team == 'l')
+        piece->setTeam("white");
+    else if (team == 'u')
+        piece->setTeam("black");
+    else
+        throw std::runtime_error("Team doesn't exist");
     return piece;
 }
 
@@ -85,12 +91,13 @@ void PrepChest::setPieces()
     for (size_t i = 1; i != fullMap.size(); i++)
         for (size_t j = 1; j != fullMap[i].size(); j++)
             if (isupper(fullMap[i][j]))
-                allPieces.push_back(createPiece(i, j, fullMap[i][j]));
+                allPieces.push_back(createPiece(i, j, fullMap[i][j], 'l'));
             else if (islower(fullMap[i][j]))
-                allPieces.push_back(createPiece(i, j, fullMap[i][j]));
+                allPieces.push_back(createPiece(i, j, fullMap[i][j], 'u'));
     //dispVec(fullMap);
     //dumpPieces();
-    //dumpPiece(allPieces[0]);
+    std::cout << "test\n";
+    dumpPiece(allPieces[0]);
 }
 
 void PrepChest::dumpPiece(Piece *piece)

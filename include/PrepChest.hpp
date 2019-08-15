@@ -23,7 +23,7 @@ public:
     void openMap(std::string, bool);
     std::string lookColor(int, int);
     void setPieces();
-    Piece *createPiece(int, int, char);
+    Piece *createPiece(int, int, char, char);
     void dumpPieces();
     void dumpPiece(Piece *);
     void setPieceType(Piece *);
