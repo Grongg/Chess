@@ -31,4 +31,8 @@
 *.out
 *.app
 
+# Old folders
+old_*
+
 chess_token.txt
+.vscode

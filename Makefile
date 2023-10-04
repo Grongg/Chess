@@ -1,23 +1,15 @@
-##
-## EPITECH PROJECT, 2019
-## chest
-## File description:
-## Makefile
-##
-
 CXX 	=	clang++
 
 RM		=	rm -rv
 
-SRCS	=	srcs/main.cpp	\
-			srcs/PrepChest.cpp	\
-			srcs/piece.cpp
+SRCS	=	src/main.cpp	\
+			src/pieces.cpp
 
 OBJS	=	$(SRCS:.cpp=.o)
 
-CXXFLAGS	+=	-I include  -std=c++11 -Wall -Wextra #-lsfml-graphic -lsfml-system
+CXXFLAGS	+=	-Iinclude  -std=c++11 -Wall -Wextra #-lsfml-graphic -lsfml-system #-Werror
 
-NAME	=	Game.exe
+NAME	=	chess.exe
 
 all: $(NAME)
 
