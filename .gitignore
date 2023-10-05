@@ -32,7 +32,7 @@
 *.app
 
 # Old folders
-old_*
+old
 
-chess_token.txt
+# Vscode shenanigans
 .vscode

@@ -3,7 +3,14 @@ CXX 	=	clang++
 RM		=	rm -rv
 
 SRCS	=	src/main.cpp	\
-			src/pieces.cpp
+			src/pieces.cpp	\
+			src/prepMap.cpp	\
+			src/piecesTypes/pawn.cpp	\
+			src/piecesTypes/king.cpp	\
+			src/piecesTypes/rook.cpp	\
+			src/piecesTypes/bishop.cpp	\
+			src/piecesTypes/queen.cpp	\
+			src/piecesTypes/knight.cpp
 
 OBJS	=	$(SRCS:.cpp=.o)
 
