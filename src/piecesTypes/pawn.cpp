@@ -8,4 +8,9 @@ bool Pawn::getFirstMove() {return _firstMove;}
 
 void Pawn::setFirstMove(bool newFirstmove){_firstMove = newFirstmove;}
 
+void Pawn::move()
+{
+    cout << "Pawn move" << endl;
+}
+
 Pawn::~Pawn(){}

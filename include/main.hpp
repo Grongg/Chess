@@ -7,18 +7,15 @@ vector<string> emptyMap;
 vector<class Piece> whiteTeam;
 vector<class Piece> blackTeam;
 
-// void testPieces();
+void initGame(vector<string> *mainMap);
+void game(vector<string> *mainMap);
+
 int main();
 
 template <class T>
 void dispPiece(T *piece)
 {
     cout << "---------------" << endl;
-    // piece->setId(0);
-    // piece->setColor('W');
-    // piece->setType("NULL");
-    // piece->setToken('N');
-    // piece->setFirstmove(true);
     cout << "Id:\t" << piece->getId() << endl;
     cout << "Color:\t" << piece->getColor() << endl;
     cout << "Type:\t" << piece->getType() << endl;
@@ -29,11 +26,6 @@ void dispPiece(T *piece)
 void dispPiece(Pawn *pawn)
 {
     cout << "---------------" << endl;
-    // pawn->setId(0);
-    // pawn->setColor('W');
-    // pawn->setType("NULL");
-    // pawn->setToken('N');
-    // pawn->setFirstMove(true);
     cout << "Id:\t" << pawn->getId() << endl;
     cout << "Color:\t" << pawn->getColor() << endl;
     cout << "Type:\t" << pawn->getType() << endl;

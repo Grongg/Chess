@@ -20,7 +20,7 @@ protected:
 
 public:
     Piece(int id, char color, char token, string type);
-    ~Piece();
+    virtual ~Piece();
     
     int getId();
     int getX();
@@ -35,6 +35,8 @@ public:
     void setColor(char newColor);
     void setToken(char newToken);
     void setType(string newType);
+
+    virtual void move();
 };
 
 class Pawn : public Piece
@@ -57,6 +59,7 @@ private:
 public:
     King(int id, int x, int y, char color);
     ~King();
+    void move();
 };
 
 class Rook : public Piece
@@ -76,6 +79,7 @@ private:
 public:
     Bishop(int id, int x, int y, char color);
     ~Bishop();
+    void move();
 };
 
 class Queen : public Piece
@@ -85,6 +89,7 @@ private:
 public:
     Queen(int id, int x, int y, char color);
     ~Queen();
+    void move();
 };
 
 class Knight : public Piece
@@ -94,4 +99,5 @@ private:
 public:
     Knight(int id, int x, int y, char color);
     ~Knight();
+    void move();
 };

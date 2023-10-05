@@ -18,4 +18,6 @@ void Piece::setColor(char newColor) {_color = newColor;}
 void Piece::setToken(char newToken) {_token = newToken;}
 void Piece::setType(string newType) {_type = newType;}
 
+void Piece::move() {cout << "Piece move" << endl;}
+
 Piece::~Piece(){}
