@@ -2,6 +2,7 @@
 
 #include "pieces.hpp"
 #include "prepMap.hpp"
+// #include <bits/stdc++.h>
 
 vector<string> emptyMap;
 vector<class Piece> whiteTeam;
